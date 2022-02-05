@@ -1,0 +1,1 @@
+wsl --install -d SLES-12
