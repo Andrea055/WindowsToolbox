@@ -32,7 +32,7 @@ def inizio():
     print(Fore.RED + "- Function for Windows 11")
     print(Fore.WHITE + "15 Old Taskbar,explorer and context menu for windows 11")
     print(Fore.WHITE + "16 Windows subsystem for Android")
-    print(Fore.RED + "- 17 Install Application")
+    print(Fore.RED + "- 18 Install Application")
     print(Fore.RED + "- Tweaking")
     print(Fore.WHITE + "19 Disable HPET")
     print(Fore.WHITE + "20 Enable HPET")
@@ -50,41 +50,45 @@ def inizio():
         print(Fore.GREEN + "6 OpenSUSE")
         print(Fore.GREEN + "7 SLES")
         linux=input("Pick a distribution")
-        if linux=="1":
-            p = subprocess.Popen(["powershell.exe",
-                                  "WSL/ubuntu.ps1"],
-                                 stdout=sys.stdout)
-            p.communicate()
-        elif linux=="2":
-            p = subprocess.Popen(["powershell.exe",
-                                  "WSL/ubuntu16.ps1"],
-                                 stdout=sys.stdout)
-            p.communicate()
-        elif linux=="3":
-            p = subprocess.Popen(["powershell.exe",
-                                  "WSL/ubuntu18.ps1"],
-                                 stdout=sys.stdout)
-            p.communicate()
-        elif linux=="4":
-            p = subprocess.Popen(["powershell.exe",
-                                  "WSL/ubuntu20.ps1"],
-                                 stdout=sys.stdout)
-            p.communicate()
-        elif linux=="5":
-            p = subprocess.Popen(["powershell.exe",
-                                  "WSL/kali.ps1"],
-                                 stdout=sys.stdout)
-            p.communicate()
-        elif linux=="6":
-            p = subprocess.Popen(["powershell.exe",
-                                  "WSL/opensuse.ps1"],
-                                 stdout=sys.stdout)
-            p.communicate()
-        elif linux=="7":
-            p = subprocess.Popen(["powershell.exe",
-                                  "WSL/sles.ps1"],
-                                 stdout=sys.stdout)
-            p.communicate()
+        match linux:
+            case "1":
+                p = subprocess.Popen(["powershell.exe",
+                                      "WSL/ubuntu.ps1"],
+                                     stdout=sys.stdout)
+                p.communicate()
+            case "2":
+                p = subprocess.Popen(["powershell.exe",
+                                      "WSL/ubuntu16.ps1"],
+                                     stdout=sys.stdout)
+                p.communicate()
+            case "3":
+                p = subprocess.Popen(["powershell.exe",
+                                      "WSL/ubuntu18.ps1"],
+                                     stdout=sys.stdout)
+                p.communicate()
+            case "4":
+                p = subprocess.Popen(["powershell.exe",
+                                      "WSL/ubuntu20.ps1"],
+                                     stdout=sys.stdout)
+                p.communicate()
+            case "5":
+                p = subprocess.Popen(["powershell.exe",
+                                      "WSL/kali.ps1"],
+                                     stdout=sys.stdout)
+                p.communicate()
+            case "6":
+                p = subprocess.Popen(["powershell.exe",
+                                      "WSL/opensuse.ps1"],
+                                     stdout=sys.stdout)
+                p.communicate()
+            case "7":
+                p = subprocess.Popen(["powershell.exe",
+                                      "WSL/sles.ps1"],
+                                     stdout=sys.stdout)
+                p.communicate()
+    if scelta=="18":
+        package=input("Insert the name of the package or of file:")
+
 while n==0:
     inizio()
 
