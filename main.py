@@ -1,6 +1,6 @@
 from colorama import init
 from colorama import Fore, Back, Style
-import subprocess, sys
+import subprocess, sys,os
 init()
 n=0
 def inizio():
@@ -31,6 +31,7 @@ def inizio():
     print(Fore.WHITE + "14 Notepad new design")
     print(Fore.RED + "- Function for Windows 11")
     print(Fore.WHITE + "15 Old Taskbar,explorer and context menu for windows 11")
+    print(Fore.WHITE + "25 Revert Windows 11 style")
     print(Fore.WHITE + "16 Windows subsystem for Android")
     print(Fore.RED + "- 18 Install Application")
     print(Fore.RED + "- Tweaking")
@@ -87,8 +88,25 @@ def inizio():
                                      stdout=sys.stdout)
                 p.communicate()
     if scelta=="18":
+        p = subprocess.Popen(["powershell.exe",
+                              "Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))"],
+                             stdout=sys.stdout)
+        p.communicate()
         package=input("Insert the name of the package or of file:")
-
+        p = subprocess.Popen(["powershell.exe",
+                              "choco install " + package],
+                             stdout=sys.stdout)
+        p.communicate()
+    if scelta=="15":
+        p = subprocess.Popen(["powershell.exe",
+                              "win11to10/W11ClassicMenu.exe /C /R"],
+                             stdout=sys.stdout)
+        p.communicate()
+    if scelta=="25":
+        p = subprocess.Popen(["powershell.exe",
+                              "win11to10/W11ClassicMenu.exe /D /R"],
+                             stdout=sys.stdout)
+        p.communicate()
 while n==0:
     inizio()
 
