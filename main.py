@@ -125,6 +125,26 @@ def inizio():
                               "misc/ReIconCache_x64.exe /I /F /R"],
                              stdout=sys.stdout)
         p.communicate()
+    if scelta=="5":
+        p = subprocess.Popen(["powershell.exe",
+                              "net start spooler"],
+                             stdout=sys.stdout)
+        p.communicate()
+    if scelta=="6":
+        p = subprocess.Popen(["powershell.exe",
+                              "net disable spooler"],
+                             stdout=sys.stdout)
+        p.communicate()
+    if scelta=="4":
+        p = subprocess.Popen(["powershell.exe",
+                              "cortana/disable.ps1"],
+                             stdout=sys.stdout)
+        p.communicate()
+    if scelta=="3":
+        p = subprocess.Popen(["powershell.exe",
+                              "cortana/enable.ps1"],
+                             stdout=sys.stdout)
+        p.communicate()
 
 while n==0:
     inizio()
