@@ -22,7 +22,10 @@ def inizio():
     print(Fore.WHITE + "18 Modify the context menu with Easy Context Menu")
     print(Fore.WHITE + "9 Set a custom pagefile(not more than 16Gb raccomanded)")
     print(Fore.WHITE + "10 Stop windows update")
+    print(Fore.WHITE + "27 Enable Windows update")
     print(Fore.WHITE + "18 Change CMD color scheme")
+    print(Fore.WHITE + "26 Add host to hosts file")
+    print(Fore.WHITE + "28 Rebuild Shell Icon Cache")
     print(Fore.RED+ "- Microsoft Store")
     print(Fore.WHITE+ "11 Install Microsoft Store")
     print(Fore.WHITE + "12 Remove Microsoft Store")
@@ -99,14 +102,30 @@ def inizio():
         p.communicate()
     if scelta=="15":
         p = subprocess.Popen(["powershell.exe",
-                              "win11to10/W11ClassicMenu.exe /C /R"],
+                              "misc/W11ClassicMenu.exe /C /R"],
                              stdout=sys.stdout)
         p.communicate()
     if scelta=="25":
         p = subprocess.Popen(["powershell.exe",
-                              "win11to10/W11ClassicMenu.exe /D /R"],
+                              "misc/W11ClassicMenu.exe /D /R"],
                              stdout=sys.stdout)
         p.communicate()
+    if scelta=="10":
+        p = subprocess.Popen(["powershell.exe",
+                              "misc/Wub_x64.exe /D /P"],
+                             stdout=sys.stdout)
+        p.communicate()
+    if scelta=="26":
+        p = subprocess.Popen(["powershell.exe",
+                              "misc/Wub_x64.exe /E /P"],
+                             stdout=sys.stdout)
+        p.communicate()
+    if scelta=="28":
+        p = subprocess.Popen(["powershell.exe",
+                              "misc/ReIconCache_x64.exe /I /F /R"],
+                             stdout=sys.stdout)
+        p.communicate()
+
 while n==0:
     inizio()
 
